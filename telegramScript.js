@@ -12,8 +12,8 @@ for (let i = 1; i < d.length + 1; i++) {
             passwd = msgText.substring(passwdIndex + 5, msgText.lenght)
         }
     };
-    if (id !== undefined && passwd !== undefined){
-        fetch("http:/localhost:8080/meeting",{method:"POST",body:`{"ID":"`+id+`","Password":"`+passwd+`"}`}).then((res)=>{console.log(res);if (res === "Success"){}})
+    if (id !== undefined && passwd !== undefined) {
+        let res = await fetch("http:/localhost:8080/meeting", { method: "POST", body: `{"ID":"` + id + `","Password":"` + passwd + `"}` }).then((res) => { console.log(res); if (res === "Success") { } })
     }
     console.log("Id = ", id, "Passwd = ", passwd)
 }
